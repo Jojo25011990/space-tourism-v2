@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { seoDescriptions } from "../seo/seoDescriptions";
 import useSeo from "../seo/useSeo";
 import Button from "../components/Button";
@@ -9,6 +10,17 @@ const Home = () => {
 		title: `Home | Space Tourism V2`,
 		description: seoDescriptions.homePage,
 	});
+
+	useEffect(() => {
+		const homeImageDesktop = new Image();
+		homeImageDesktop.src = "/assets/home/background-home-desktop.jpg";
+
+		const homeImageTablet = new Image();
+		homeImageTablet.src = "/assets/home/background-home-tablet.jpg";
+
+		const homeImageMobile = new Image();
+		homeImageMobile.src = "/assets/home/background-home-mobile.jpg";
+	}, []);
 
 	return (
 		<section className="home-page">
