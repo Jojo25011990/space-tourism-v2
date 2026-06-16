@@ -16,6 +16,22 @@ const Technology = () => {
 		description: seoDescriptions.technologyPage,
 	});
 
+	// *** Preloading Background Images ***
+	useEffect(() => {
+		const technologyImageDesktop = new window.Image();
+		technologyImageDesktop.src =
+			"/assets/technology/background-technology-desktop.jpg";
+
+		const technologyImageTablet = new window.Image();
+		technologyImageTablet.src =
+			"/assets/technology/background-technology-tablet.jpg";
+
+		const technologyImageMobile = new window.Image();
+		technologyImageMobile.src =
+			"/assets/technology/background-technology-mobile.jpg";
+	}, []);
+	// *** End of Preloading Background Images ***
+
 	//  *** Version 01 ***
 	// const [isLargeDesktop, setIsLargeDesktop] = useState<boolean>(
 	// 	() => window.innerWidth > 1100,

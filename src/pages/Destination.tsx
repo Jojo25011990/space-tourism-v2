@@ -23,6 +23,22 @@ const Destination = () => {
 		description: seoDescriptions.destinationPage,
 	});
 
+	// *** Preloading Background Images ***
+	useEffect(() => {
+		const destinationImageDesktop = new window.Image();
+		destinationImageDesktop.src =
+			"/assets/destination/background-destination-desktop.jpg";
+
+		const destinationImageTablet = new window.Image();
+		destinationImageTablet.src =
+			"/assets/destination/background-destination-tablet.jpg";
+
+		const destinationImageMobile = new window.Image();
+		destinationImageMobile.src =
+			"/assets/destination/background-destination-mobile.jpg";
+	}, []);
+	// *** End of Preloading Background Images ***
+
 	useEffect(() => {
 		const handleLightboxResize = () => {
 			if (isImageOpen && window.innerWidth > 850) setIsImageOpen(false);

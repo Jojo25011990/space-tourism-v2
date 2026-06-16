@@ -22,6 +22,19 @@ const Crew = () => {
 		description: seoDescriptions.crewPage,
 	});
 
+	// *** Preloading Background Images ***
+	useEffect(() => {
+		const crewImageDesktop = new window.Image();
+		crewImageDesktop.src = "/assets/crew/background-crew-desktop.jpg";
+
+		const crewImageTablet = new window.Image();
+		crewImageTablet.src = "/assets/crew/background-crew-tablet.jpg";
+
+		const crewImageMobile = new window.Image();
+		crewImageMobile.src = "/assets/crew/background-crew-mobile.jpg";
+	}, []);
+	// *** End of Preloading Background Images ***
+
 	useEffect(() => {
 		const handleLightboxResize = () => {
 			if (isImageOpen && window.innerWidth > 850) setIsImageOpen(false);

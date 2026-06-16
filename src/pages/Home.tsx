@@ -11,6 +11,7 @@ const Home = () => {
 		description: seoDescriptions.homePage,
 	});
 
+	// *** Preloading Background Images ***
 	useEffect(() => {
 		const homeImageDesktop = new Image();
 		homeImageDesktop.src = "/assets/home/background-home-desktop.jpg";
@@ -21,6 +22,7 @@ const Home = () => {
 		const homeImageMobile = new Image();
 		homeImageMobile.src = "/assets/home/background-home-mobile.jpg";
 	}, []);
+	// *** End of Preloading Background Images ***
 
 	return (
 		<section className="home-page">
