@@ -1,0 +1,47 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Moon ***
+.moon {
+	transform: translateX(-50%);
+
+	background-color: $color-moon;
+
+	border-radius: 50%;
+
+	filter: drop-shadow(0 0 1px $color-white);
+
+	overflow: hidden;
+
+	@include dimension-settings(113%, null, 124%);
+	@include position-settings(null, 50%, null, -90%, $zIndex-large-01);
+
+	& > div:first-child,
+	& > div:last-child {
+		border-radius: 50%;
+
+		@include dimension-settings(80px, null, 100px);
+		@include position-settings(80px);
+	}
+
+	& > div:first-child {
+		box-shadow: inset 25px 0 1px rgba(255, 255, 255, 0.5);
+
+		@include position-settings(null, 180px);
+	}
+	& > div:last-child {
+		box-shadow: inset -25px 0 1px rgba(255, 255, 255, 0.5);
+
+		@include position-settings(null, null, 180px);
+	}
+
+	.moon-text {
+		transform: translateX(-50%);
+
+		text-transform: uppercase;
+
+		@include font-settings(50px, 700);
+		@include position-settings(90px, 50%);
+	}
+}
+// *** End of Moon ***

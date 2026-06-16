@@ -1,0 +1,151 @@
+@use "./variables" as *;
+// *** Intro Page ***
+@keyframes intro-fade-out {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes intro-title {
+	0% {
+		transform: scale(100);
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	10% {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	50%,
+	90% {
+		transform: scale(2.5);
+	}
+
+	91%,
+	99% {
+		transform: scale(2.5);
+	}
+
+	100% {
+		transform: scale(0);
+
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes intro-description {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(120%);
+	}
+
+	5% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(120%);
+	}
+
+	90% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		transform: translateY(-100%);
+	}
+}
+// *** Intro Page ***
+
+// *** Error Page ***
+@keyframes error-page-message {
+	to {
+		transform: translateZ(0) scale(1);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes error-animate-button {
+	0% {
+		animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+		opacity: 0;
+		visibility: hidden;
+
+		transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+	}
+
+	60% {
+		animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+
+		opacity: 1;
+		visibility: visible;
+
+		transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+	}
+	100% {
+		animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+
+		opacity: 1;
+		visibility: visible;
+
+		transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+	}
+}
+
+@keyframes error-fade-out-text {
+	to {
+		opacity: 0;
+		visibility: hidden;
+		filter: blur(10px);
+	}
+}
+@keyframes error-fade-in-text {
+	to {
+		opacity: 1;
+		visibility: visible;
+		filter: blur(0);
+	}
+}
+
+@keyframes error-astro-glowing {
+	to {
+		transform: translateX(-50%) translateY(-15%) scale(1.05);
+
+		filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+	}
+}
+
+@keyframes error-astro-end-glowing {
+	to {
+		transform: translateX(-50%) translateY(-15%) scale(1);
+
+		filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+	}
+}
+// *** End of Error Page ***
+
+// *** Explore Page ***
+@keyframes explore-fade-out {
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-15%);
+	}
+}
+// *** End of Explore Page ***
+
+// *** Home Page - GSAP pre-fix render flash ***
+@keyframes gsap-render-flash {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+// *** End of Home Page - GSAP pre-fix render flash ***

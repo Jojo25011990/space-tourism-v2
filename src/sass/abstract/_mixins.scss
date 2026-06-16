@@ -1,0 +1,94 @@
+@use "./variables" as *;
+
+// *** Font Settings ***
+@mixin font-settings(
+	$size,
+	$weight: null,
+	$line-height: null,
+	$l-spacing: null
+) {
+	font-size: $size;
+	font-weight: $weight;
+
+	@if $line-height {
+		line-height: $line-height;
+	}
+
+	@if $l-spacing {
+		letter-spacing: $l-spacing;
+	}
+}
+// *** End of Font Settings ***
+
+// *** Flexbox Settings ***
+@mixin flex-settings(
+	$justify: center,
+	$align: center,
+	$direction: null,
+	$gap: null
+) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+
+	@if $gap {
+		gap: $gap;
+	}
+}
+// *** End of Flexbox Settings ***
+
+// *** Position Settings ***
+@mixin position-settings(
+	$top: null,
+	$left: null,
+	$right: null,
+	$bottom: null,
+	$zIndex: null,
+	$position: absolute
+) {
+	@if $position {
+		position: $position;
+	}
+
+	@if $top {
+		top: $top;
+	}
+
+	@if $left {
+		left: $left;
+	}
+	@if $right {
+		right: $right;
+	}
+	@if $bottom {
+		bottom: $bottom;
+	}
+	@if $zIndex {
+		z-index: $zIndex;
+	}
+}
+// *** End of Position Settings ***
+
+// *** Dimension Settings ***
+@mixin dimension-settings(
+	$width: null,
+	$max-width: null,
+	$height: null,
+	$min-height: null
+) {
+	@if $width {
+		width: $width;
+	}
+
+	@if $max-width {
+		max-width: $max-width;
+	}
+	@if $height {
+		height: $height;
+	}
+	@if $min-height {
+		min-height: $min-height;
+	}
+}
+// *** End of Dimension Settings ***

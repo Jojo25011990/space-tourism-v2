@@ -1,0 +1,48 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Flag ***
+.flag {
+	filter: drop-shadow(0 0 1px $color-white);
+
+	@include position-settings(290px, 139px, null, null, 150);
+	@include dimension-settings(80px, null, 150px);
+
+	@media (max-width: 500px) {
+		@include position-settings(265px, 139px, null, null, 150);
+	}
+
+	& > div {
+		transform: translateX(-50%);
+
+		background-color: $color-white;
+
+		@include dimension-settings(4px, null, 100px);
+		@include position-settings($left: 50%, $bottom: 0);
+	}
+
+	& > div::before,
+	& > div::after {
+		content: "";
+
+		background-color: $color-white;
+		border-radius: 2px;
+
+		opacity: 1;
+
+		@include position-settings;
+	}
+
+	& > div::before {
+		transform: translateX(-50%);
+
+		@include dimension-settings(10px, null, 10px);
+		@include position-settings(-10px, 50%);
+	}
+
+	& > div::after {
+		@include dimension-settings(60px, null, 35px);
+		@include position-settings(2px, null, 0);
+	}
+}
+// *** End of Flag ***

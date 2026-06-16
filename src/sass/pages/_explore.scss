@@ -1,0 +1,96 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.explore-page {
+	position: relative;
+	background-color: transparent;
+
+	text-align: center;
+	@include dimension-settings(100%, null, 100%);
+
+	&-canvas {
+		overflow: hidden;
+
+		@include dimension-settings(100%, null, 100%);
+		@include position-settings($zIndex-small-01, $position: relative);
+	}
+
+	&-content {
+		transform: translate(-50%, -50%);
+
+		perspective: 1000px;
+		transform-style: preserve-3d;
+
+		overflow: hidden;
+
+		@include dimension-settings(100%, null, 100%);
+		@include flex-settings;
+		@include position-settings(50%, 50%);
+
+		@include position-settings($zIndex: $zIndex-medium-03);
+
+		&-wrapper {
+			overflow: hidden;
+
+			transform: rotateX(60deg);
+
+			@include position-settings($position: relative);
+			@include dimension-settings(100%, 500px, 100%);
+
+			// *** Responsive Design ***
+			@media (max-width: 650px) {
+				@include dimension-settings(100%, 350px, 100%);
+			}
+			// *** End of Responsive Design ***
+		}
+	}
+
+	&-description {
+		transform: translateY(150%);
+
+		color: $color-orange;
+
+		text-shadow: 0 0 1px $color-black;
+		text-transform: capitalize;
+		font-family: $font-fa-secondary;
+
+		animation: intro-description 40s linear forwards;
+		animation-delay: 3.5s;
+
+		@include font-settings(35px, 700, 2.2);
+		@include dimension-settings(100%);
+
+		// *** Responsive Design ***
+		@media (max-width: 650px) {
+			@include font-settings(30px, 700, 2.2);
+
+			animation: intro-description 34s linear forwards;
+
+			animation-delay: 3.5s;
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-description-exit {
+		transform: translateX(-50%) translateY(0);
+
+		color: $color-orange;
+
+		opacity: 0;
+
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+		animation: explore-fade-out 0.5s ease-out forwards;
+		animation-delay: 33s;
+
+		@include font-settings(35px, 700, 2.2);
+		@include dimension-settings(100%);
+		@include position-settings($bottom: 15%, $left: 50%);
+
+		// *** Responsive Design ***
+		@media (max-width: 650px) {
+			@include font-settings(24px, 700, 2.2);
+		}
+		// *** End of Responsive Design ***
+	}
+}

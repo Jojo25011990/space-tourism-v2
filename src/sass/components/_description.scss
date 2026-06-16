@@ -1,0 +1,59 @@
+@use "../abstract" as *;
+
+// *** Description Primary - Global ***
+.description-primary {
+	font-family: $font-fa-tertiary;
+	@include font-settings(18px, null, 180%, 0px);
+
+	// *** Home Page ***
+	&.home-description {
+		// *** GSAP fix - Render Flash ***
+		animation: gsap-render-flash 0.4s linear forwards;
+		// *** End of GSAP fix - Render Flash ***
+	}
+	// *** End of Home Page ***
+
+	// *** Destination Page ***
+	&.destination-description {
+		color: $color-light-blue;
+
+		// *** Responsive Design ***
+		@media (max-width: 550px) {
+			@include font-settings(14px);
+		}
+		// *** End of Responsive Design ***
+	}
+	// *** End of Destination Page ***
+
+	// *** Crew Page ***
+	&.crew-description {
+		color: $color-light-blue;
+
+		text-transform: none;
+
+		// *** Responsive Design ***
+		@media (max-width: 850px) {
+			@include font-settings(14px);
+		}
+		// *** End of Responsive Design ***
+	}
+	// *** End of Crew Page ***
+
+	// *** Technology Page ***
+	&.technology-description {
+		color: $color-light-blue;
+		margin-top: 20px;
+
+		// *** Responsive Design ***
+		@media (max-width: 1100px) {
+			@include font-settings(15px, null);
+		}
+
+		@media (max-width: 850px) {
+			@include font-settings(14px, null);
+		}
+		// *** End of Responsive Design ***
+	}
+	// *** End of Technology Page ***
+}
+// *** End of Description Primary - Global ***

@@ -1,0 +1,92 @@
+@use "../abstract" as *;
+
+// *** Heading Primary ( h1 ) -  Crew | Technology ***
+.heading-primary {
+	text-transform: uppercase;
+
+	align-self: self-start;
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		align-self: center;
+	}
+	// *** End of Responsive Design ***
+
+	& span {
+		display: block;
+	}
+
+	&-span-01 {
+		opacity: 0.5;
+		@include font-settings(28px, null, null, 4px);
+
+		// *** Responsive Design ***
+		@media (max-width: 850px) {
+			margin-bottom: 16px;
+
+			@include font-settings(20px, null, null, 4px);
+		}
+
+		@media (max-width: 500px) {
+			margin-bottom: 0;
+
+			@include font-settings(18px);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-span-02 {
+		color: $color-white;
+
+		@include font-settings(56px);
+
+		// *** Responsive Design ***
+		@media (max-width: 850px) {
+			margin-bottom: 24px;
+
+			@include font-settings(36px, null, 1.3);
+		}
+
+		@media (max-width: 500px) {
+			@include font-settings(30px, inherit);
+		}
+
+		// *** End of Responsive Design ***
+	}
+}
+// *** End of Heading Primary ( h1 ) -  Crew | Technology ***
+
+// *** Heading Secondary ( h2 ) - Destination | Crew | Technology ***
+.secondary-title {
+	font-family: $font-fa-secondary;
+	text-transform: uppercase;
+
+	@include dimension-settings(100%);
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		text-align: center;
+	}
+	// *** End of Responsive Design ***
+
+	& span {
+		@include font-settings(28px, 700, null, 4.72px);
+
+		// *** Responsive Design ***
+		@media (max-width: 550px) {
+			@include font-settings(20px, 700, null, 4.72px);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	& > span:first-child {
+		opacity: 0.25;
+
+		margin-right: 24px;
+	}
+
+	& > span:last-child {
+		@include font-settings(null, normal, null, 4px);
+	}
+}
+// *** End of Heading Secondary ( h2 ) - Destination | Crew | Technology ***

@@ -1,0 +1,158 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Crew Page ***
+.crew-page {
+	background: url("/assets/crew/background-crew-desktop.jpg") no-repeat
+		center/cover;
+
+	@include dimension-settings(100%, null, null, 100vh);
+	@include flex-settings;
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		background: url("/assets/crew/background-crew-tablet.jpg") no-repeat
+			center/cover;
+	}
+
+	@media (max-width: 500px) {
+		background: url("/assets/crew/background-crew-mobile.jpg") no-repeat
+			center/cover;
+	}
+	// *** End of Responsive Design ***
+
+	&-container {
+		margin: 157px auto 0 auto;
+
+		padding-inline: 14px;
+		padding-bottom: 48px;
+
+		@include dimension-settings(100%, 1110px);
+		@include flex-settings($direction: column, $gap: 24px);
+
+		// *** Responsive Design ***
+		@media (max-width: 850px) {
+			margin-top: 100px;
+			padding-bottom: 24px;
+
+			@include flex-settings(null, null, null, 0px);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-wrapper {
+		@include dimension-settings(100%);
+		@include flex-settings(space-between, $gap: 32px);
+
+		// *** Responsive Design ***
+		@media (max-width: 850px) {
+			text-align: center;
+			@include flex-settings($direction: column);
+		}
+		// *** End of Responsive Design ***
+
+		.crew-content-box {
+			@include dimension-settings(null, null, 100%, 640px);
+			@include flex-settings(null, null, column, 20px);
+			@include position-settings($position: relative);
+
+			// *** Responsive Design ***
+			@media (max-width: 850px) {
+				padding-top: 40px;
+
+				@include dimension-settings($min-height: 0px);
+			}
+			// *** End of Responsive Design ***
+
+			& > div:first-child {
+				text-transform: uppercase;
+				margin-top: auto;
+
+				@include dimension-settings(100%, 540px);
+				@include flex-settings($direction: column);
+			}
+
+			& > div:last-child {
+				margin-top: auto;
+
+				@include dimension-settings(100%, 180px);
+				@include flex-settings(space-between);
+
+				// *** Responsive Design ***
+				@media (max-width: 850px) {
+					margin-top: 40px;
+
+					align-self: center;
+				}
+				// *** End of Responsive Design ***
+			}
+		}
+
+		.crew-img-box {
+			@include dimension-settings(100%, 470px, 100%, 640px);
+			@include flex-settings;
+			@include position-settings($position: relative);
+
+			// *** Responsive Design ***
+			@media (max-width: 850px) {
+				@include dimension-settings(
+					$max-width: 250px,
+					$min-height: 370px
+				);
+			}
+			// *** End of Responsive Design ***
+		}
+		// *** End of Content ***
+	}
+}
+
+.crew-btn {
+	background-color: $color-white;
+
+	border-radius: 50%;
+
+	opacity: 0.25;
+
+	transition: opacity 0.3s;
+
+	cursor: pointer;
+
+	@include dimension-settings(16px, null, 16px);
+
+	&.active {
+		opacity: 1;
+	}
+
+	&:hover,
+	&:active {
+		opacity: 1;
+	}
+}
+// *** End of Crew Page ***
+
+.crew-page .overlay-lightbox-image {
+	transform: translate(0, 0) scale(1);
+	transition: all 0.5s ease-in-out;
+
+	@include position-settings(null, 0, null, 0);
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		& {
+			cursor: pointer;
+		}
+	}
+	// *** End of Responsive Design ***
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 0.25s;
+	}
+
+	&.no-active {
+		transform: translate(0, 0) scale(0);
+		opacity: 0;
+		visibility: hidden;
+	}
+}

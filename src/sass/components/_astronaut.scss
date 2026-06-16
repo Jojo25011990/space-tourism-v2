@@ -1,0 +1,728 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Astronaut ***
+.astronaut {
+	transform: translateX(-50%) translateY(-15%) scale(1);
+
+	filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+
+	@include position-settings(35%, 50%, $zIndex: $zIndex-large-03);
+	@include dimension-settings(230px, null, 300px);
+
+	// *** Responsive Design ***
+	@media (max-width: 500px) {
+		@include position-settings(32%, 50%, $zIndex: $zIndex-large-03);
+	}
+	// *** End of Responsive Design ***
+
+	&.active-astro {
+		animation:
+			error-astro-glowing 0.35s 1.25s ease-out forwards,
+			error-astro-end-glowing 0.35s 6s ease-out forwards;
+	}
+
+	// *** Head ***
+	&-head-01 {
+		transform: translateX(-50%);
+
+		background-color: $color-white;
+
+		border-radius: 50%;
+		border: 5px solid $color-black;
+
+		overflow: hidden;
+
+		@include position-settings(5px, 51%, $zIndex: $zIndex-small-02);
+		@include dimension-settings(190px, null, 190px);
+
+		&::before,
+		&::after {
+			content: "";
+
+			background-color: $color-astronaut-shadow;
+
+			@include position-settings($bottom: 0);
+		}
+
+		&::before {
+			transform: rotate(-30deg);
+
+			clip-path: polygon(0 0, 0% 100%, 100% 100%);
+
+			@include dimension-settings(30px, null, 70px);
+			@include position-settings($left: 20px);
+		}
+
+		&::after {
+			transform: rotate(38deg);
+
+			clip-path: polygon(0 0, 0% 100%, 100% 100%);
+
+			@include dimension-settings(30px, null, 89px);
+			@include position-settings($right: -5px);
+		}
+	}
+
+	&-head-02 {
+		transform: translateX(-50%);
+
+		background-color: $color-astronaut-shadow;
+
+		border-radius: 50%;
+		border: 4px solid $color-black;
+
+		@include position-settings(22px, 51%, $zIndex: $zIndex-small-02);
+		@include dimension-settings(158px, null, 158px);
+		@include flex-settings;
+
+		& > div:nth-of-type(1) {
+			background-color: $color-dark-black;
+
+			border-radius: 50%;
+
+			@include dimension-settings(138px, null, 138px);
+		}
+
+		& > div:nth-of-type(2) {
+			transform: rotate(-48deg);
+
+			background-color: $color-grey;
+
+			border: 2px solid $color-black;
+			border-radius: 50%;
+
+			@include dimension-settings(35px, null, 20px);
+			@include position-settings(null, null, 19px, 27px);
+
+			&::before,
+			&::after {
+				content: "";
+
+				background-color: $color-grey;
+
+				border: 2px solid $color-black;
+				border-radius: 50%;
+
+				@include position-settings;
+			}
+
+			&::before {
+				transform: rotate(-10deg);
+
+				@include dimension-settings(18px, null, 15px);
+				@include position-settings($right: -21px, $bottom: 4px);
+			}
+
+			&::after {
+				transform: rotate(-52deg);
+
+				@include dimension-settings(23px, null, 18px);
+				@include position-settings(-85px, -40px);
+			}
+		}
+
+		& > div:nth-of-type(3) {
+			transform: rotate(-50deg);
+
+			overflow: hidden;
+
+			@include dimension-settings(69px, null, 27px);
+			@include position-settings(30px, 0px);
+
+			& > span {
+				border: 2px solid transparent;
+				border-radius: 50%;
+
+				@include position-settings;
+			}
+
+			& > span:nth-child(2),
+			& > span:nth-child(3) {
+				border-top: 2px solid $color-black;
+				border-left: 2px solid $color-black;
+				border-right: 2px solid $color-black;
+
+				background-color: $color-grey;
+
+				@include dimension-settings(20px, null, 24px);
+			}
+
+			& > span:nth-child(1) {
+				transform: rotate(0deg);
+
+				border-top: 2px solid $color-black;
+
+				@include position-settings(5px, -39px);
+				@include dimension-settings(150px, null, 138px);
+			}
+
+			& > span:nth-child(2) {
+				transform: rotate(100deg);
+
+				@include position-settings(6px, 47px);
+			}
+
+			& > span:nth-child(3) {
+				transform: rotate(-100deg);
+
+				@include position-settings($left: 2px, $bottom: -3px);
+			}
+
+			& > span:nth-child(4) {
+				transform: rotate(0deg);
+
+				border-top: 2px solid $color-black;
+
+				@include position-settings(21px, -39px);
+				@include dimension-settings(150px, null, 179px);
+			}
+
+			& > span:nth-child(5) {
+				border: none;
+				border-radius: 50%;
+
+				background-color: $color-grey;
+
+				@include position-settings(7.4px, 7.3px);
+				@include dimension-settings(56px, null, 13px);
+
+				&::before {
+					content: "";
+
+					border: 5px solid transparent;
+					border-top: 2px solid $color-grey;
+					border-radius: 50% 50% 0 0;
+
+					background-color: transparent;
+
+					@include position-settings(12px, 0);
+					@include dimension-settings(100%, null, 100%);
+				}
+			}
+
+			& > span:nth-child(6) {
+				border-radius: 50%;
+
+				background-color: $color-dark-black;
+
+				@include position-settings(11px, -3px);
+				@include dimension-settings(100%, 5px, 5px);
+
+				&::before,
+				&::after {
+					content: "";
+
+					background-color: $color-dark-black;
+
+					@include dimension-settings(760%, null, 170%);
+				}
+
+				&::before {
+					transform: rotate(10deg);
+
+					@include position-settings(12px, 50px);
+				}
+
+				&::after {
+					transform: rotate(45deg);
+
+					@include position-settings(-1px, 66px);
+				}
+			}
+		}
+
+		& > div:nth-of-type(4) {
+			transform: rotate(45deg);
+
+			border-radius: 50%;
+
+			background-image: linear-gradient(
+				to right,
+				$color-white,
+				rgba($color-white, 0.5),
+				transparent
+			);
+
+			filter: blur(30px) opacity(0.9);
+
+			@include dimension-settings(100%, 80px, 33px);
+			@include position-settings(46px, 19px);
+		}
+	}
+	// *** End of Head ***
+
+	// *** Ears ***
+	&-ear {
+		background-color: $color-astronaut-shadow;
+
+		border: 5px solid $color-black;
+
+		overflow: hidden;
+
+		@include dimension-settings(100%, 35px, 65px);
+		@include position-settings(25%, $zIndex: $zIndex-small-01);
+
+		&::before {
+			content: "";
+
+			background-color: $color-white;
+
+			@include dimension-settings(100%, null, 100%);
+			@include position-settings(0, 0);
+		}
+
+		&-left {
+			border-radius: 50% 0 0 50%;
+
+			&::before {
+				border-radius: 50% 0 50% 0;
+
+				@include dimension-settings($height: 65%);
+				@include position-settings($left: -5px);
+			}
+		}
+
+		&-right {
+			border-radius: 0 50% 50% 0;
+
+			@include position-settings($right: 0);
+
+			&::before {
+				border-radius: 0 0 18% 81%;
+
+				@include dimension-settings($height: 52%);
+				@include position-settings($left: 10px);
+			}
+		}
+	}
+	// *** End of Ears ***
+
+	// *** Heart ***
+	&-heart {
+		transform: translateX(-50%) scale(1.1);
+
+		overflow: hidden;
+
+		@include dimension-settings(100%, 140px, 115px);
+		@include position-settings(null, 50%, null, 28px, $zIndex-small-02);
+
+		&::before,
+		&::after {
+			content: "";
+
+			background-color: transparent;
+
+			@include position-settings($zIndex: $zIndex-medium-01);
+		}
+
+		&::before {
+			transform: rotate(55deg);
+
+			@include dimension-settings(100%, 59px, 45px);
+			@include position-settings(34px, 33px);
+		}
+
+		&::after {
+			transform: rotate(45deg);
+
+			border-radius: 0 0 5%;
+
+			@include dimension-settings(100%, 64px, 32px);
+			@include position-settings(49px, 22px);
+		}
+
+		& > div:first-child {
+			transform: rotate(-55deg);
+
+			background-color: $color-heart;
+
+			border-radius: 50% 50% 0 0;
+
+			@include dimension-settings(100%, 70px, 95px);
+			@include position-settings(0, 16px);
+		}
+
+		& > div:last-child {
+			transform: rotate(55deg);
+
+			background-color: $color-heart;
+
+			border-radius: 50% 50% 0 0;
+
+			@include dimension-settings(100%, 70px, 95px);
+			@include position-settings(0, null, 16px);
+		}
+	}
+	// *** End of Heart ***
+
+	// *** Feet ***
+	&-foot {
+		background-color: $color-white;
+
+		border: 4px solid $color-black;
+		border-radius: 50%;
+
+		overflow: hidden;
+
+		@include dimension-settings(100%, 50px, 70px);
+		@include flex-settings(space-around, center, column);
+		@include position-settings($bottom: 2px, $zIndex: $zIndex-small-03);
+
+		&-left {
+			transform: rotate(-20deg);
+
+			@include position-settings($left: 26px);
+		}
+
+		&-right {
+			transform: rotate(20deg);
+
+			@include position-settings($right: 26px);
+		}
+
+		& > span {
+			background-color: $color-black;
+
+			@include dimension-settings(100%, null, 3px);
+			@include position-settings($position: relative);
+
+			&::before {
+				content: "";
+
+				background-color: $color-astronaut-shadow;
+
+				@include dimension-settings(100%, null, 2px);
+				@include position-settings($left: 0, $bottom: -2px);
+			}
+		}
+
+		& > span:last-child::before {
+			content: "";
+
+			background-color: $color-astronaut-shadow;
+
+			@include dimension-settings(100%, null, 100%);
+			@include position-settings($left: 0, $bottom: -100%);
+		}
+	}
+	// *** End of Feet ***
+
+	// *** Body ***
+	&-body {
+		background-color: $color-astronaut-shadow;
+
+		@include dimension-settings(100%, 130px, 50px);
+		@include position-settings($left: 52px, $bottom: 28px);
+
+		&-helper {
+			overflow: hidden;
+
+			@include dimension-settings(100%, 121px, 112.4px);
+			@include position-settings($left: 54px, $bottom: -69px);
+
+			& > div:first-child {
+				transform: translateX(-50%);
+
+				border-radius: 50%;
+				border: 4px solid transparent;
+				border-top: 4px solid $color-black;
+
+				@include dimension-settings(317px, null, 506px);
+				@include position-settings(15px, 49.5%);
+			}
+
+			& > div:last-child {
+				transform: translateX(-50%);
+
+				border-radius: 50%;
+				border: 4px solid transparent;
+				border-top: 10px solid $color-astronaut-shadow;
+
+				@include dimension-settings(317px, null, 506px);
+				@include position-settings(5px, 49.5%);
+			}
+		}
+
+		&-top {
+			border: 4px solid $color-black;
+			border-bottom: 4px solid transparent;
+			border-radius: 4rem 4rem 6rem 6rem;
+			background-color: $color-astronaut-shadow;
+
+			@include dimension-settings(167px, null, 100px);
+			@include position-settings(152px, 32px, $zIndex: $zIndex-small-01);
+		}
+	}
+	// *** End of Body ***
+
+	// *** Hands ***
+	&-hand {
+		transform: scale(1.1);
+
+		@include position-settings(-21px, $zIndex: $zIndex-small-02);
+
+		& > div {
+			overflow: hidden;
+
+			@include position-settings;
+		}
+
+		&-left {
+			@include position-settings($left: -10px);
+
+			& > div:nth-child(1) {
+				background-color: transparent;
+
+				border: 4px solid $color-black;
+				border-left: 4px solid transparent;
+				border-radius: 0 35% 55% 0;
+
+				@include position-settings(203px, 36px);
+				@include dimension-settings(30px, null, 30px);
+			}
+
+			& > div:nth-child(2) {
+				transform: rotate(-10deg);
+
+				border: 4px solid $color-black;
+				border-left: 4px solid transparent;
+				border-radius: 0 95% 55% 0;
+
+				@include position-settings(187px, 38px);
+				@include dimension-settings(25px, null, 19px);
+			}
+
+			& > div:nth-child(3) {
+				border: 4px solid $color-black;
+				border-right: 4px solid transparent;
+				border-radius: 60% 30% 0% 40%;
+
+				@include position-settings(189px, 27px);
+				@include dimension-settings(30px, null, 45px);
+			}
+
+			& > div:nth-child(1)::before,
+			& > div:nth-child(2)::before,
+			& > div:nth-child(3)::before {
+				content: "";
+
+				background-color: $color-astronaut-shadow;
+
+				@include dimension-settings(100%, null, 100%);
+				@include position-settings(0, 0, 0);
+			}
+
+			& > div:nth-child(3)::before {
+				background-color: $color-white;
+
+				border-radius: 0 50% 80% 0;
+
+				@include dimension-settings(92%, null, 105%);
+			}
+
+			& > div:nth-child(4) {
+				background-color: $color-astronaut-shadow;
+
+				@include dimension-settings(6px, null, 5px);
+				@include position-settings(
+					191.7px,
+					48.1px,
+					$zIndex: $zIndex-medium-03
+				);
+			}
+		}
+
+		&-right {
+			@include position-settings($right: -10px);
+
+			& > div:nth-child(1) {
+				border: 4px solid $color-black;
+				border-right: 4px solid transparent;
+				border-radius: 35% 0 0 55%;
+
+				@include position-settings(203px, null, 36px);
+				@include dimension-settings(30px, null, 30px);
+			}
+
+			& > div:nth-child(2) {
+				transform: rotate(10deg);
+
+				border: 4px solid $color-black;
+				border-right: 4px solid transparent;
+				border-radius: 95% 0 0 55%;
+
+				@include position-settings(187px, null, 38px);
+				@include dimension-settings(25px, null, 19px);
+			}
+
+			& > div:nth-child(3) {
+				border: 4px solid $color-black;
+				border-left: 4px solid transparent;
+				border-radius: 30% 60% 40% 0%;
+
+				@include position-settings(189px, null, 27px);
+				@include dimension-settings(30px, null, 45px);
+			}
+
+			& > div:nth-child(1)::before,
+			& > div:nth-child(2)::before,
+			& > div:nth-child(3)::before {
+				content: "";
+
+				background-color: $color-astronaut-shadow;
+
+				@include dimension-settings(100%, null, 100%);
+				@include position-settings(0, null, 0);
+			}
+
+			& > div:nth-child(3)::before {
+				background-color: $color-white;
+
+				border-radius: 50% 0 0 80%;
+
+				@include dimension-settings(92%, null, 105%);
+				@include position-settings(null, 2px);
+			}
+
+			& > div:nth-child(4) {
+				background-color: $color-astronaut-shadow;
+
+				@include dimension-settings(6px, null, 5px);
+				@include position-settings(
+					191.7px,
+					$right: 48.1px,
+					$zIndex: $zIndex-medium-03
+				);
+			}
+		}
+	}
+	// *** End of Hands ***
+
+	// *** Hose ***
+	&-hose {
+		border: 2px solid transparent;
+
+		overflow: hidden;
+
+		@include dimension-settings(100px, null, 92px);
+		@include position-settings(
+			126px,
+			152px,
+			$zIndex: $zIndex-extra-small-01
+		);
+
+		& > div:first-child,
+		& > div:last-child {
+			border-radius: 50%;
+			border: 4px solid $color-black;
+
+			background-color: transparent;
+
+			@include position-settings;
+		}
+
+		& > div:first-child {
+			@include position-settings(
+				0,
+				-23px,
+				null,
+				null,
+				$zIndex-extra-small-01
+			);
+			@include dimension-settings(80px, $height: 80px);
+
+			&::before {
+				content: "";
+
+				background-color: $color-black;
+
+				border-radius: 50%;
+
+				@include dimension-settings(100%, null, 100%);
+				@include position-settings(
+					0,
+					1px,
+					null,
+					null,
+					$zIndex-special-01
+				);
+			}
+		}
+
+		& > div:last-child {
+			@include dimension-settings(80px, null, 89px);
+			@include position-settings(
+				-4px,
+				-4px,
+				null,
+				null,
+				$zIndex-special-01
+			);
+
+			&::before,
+			&::after {
+				content: "";
+
+				border-radius: 50%;
+
+				@include dimension-settings(100%, null, 100%);
+				@include position-settings(0, 0);
+			}
+
+			&::before {
+				background-color: $color-white;
+			}
+
+			&::after {
+				background-color: $color-astronaut-shadow;
+
+				@include position-settings($left: -4.5px);
+			}
+		}
+
+		@for $i from 2 through 6 {
+			& > div:nth-child(#{$i}) {
+				@include position-settings($zIndex: $zIndex-small-02);
+
+				border-radius: 50%;
+				border: 4px solid transparent;
+				border-bottom-color: $color-black;
+
+				background-color: transparent;
+			}
+		}
+
+		& > div:nth-child(2) {
+			@include position-settings(30px, 52px);
+			@include dimension-settings(25px, null, 17px);
+		}
+		& > div:nth-child(3) {
+			transform: rotate(30deg);
+
+			@include position-settings(43px, 51px);
+			@include dimension-settings(26px, null, 17px);
+		}
+		& > div:nth-child(4) {
+			transform: rotate(42deg);
+
+			@include position-settings(53px, 45px);
+			@include dimension-settings(26px, null, 17px);
+		}
+		& > div:nth-child(5) {
+			transform: rotate(-20deg);
+
+			@include position-settings(16px, 49px);
+			@include dimension-settings(26px, null, 17px);
+		}
+		& > div:nth-child(6) {
+			transform: rotate(-48deg);
+
+			@include position-settings(4px, 41px);
+			@include dimension-settings(26px, null, 17px);
+		}
+	}
+
+	// *** End of Hose ***
+}
+// *** End of Astronaut ***

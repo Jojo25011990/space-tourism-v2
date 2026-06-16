@@ -1,0 +1,197 @@
+@use "../abstract" as *;
+
+// *** Header ***
+.header {
+	@include dimension-settings(100%, null, null, 96px);
+	@include flex-settings(space-between);
+	@include position-settings(0);
+
+	// *** Pseudo Element - ::after ( Placeholder ) ***
+	@extend %header-pseudo-element;
+	// *** End of Pseudo Element - ::after ( Placeholder ) ***
+}
+
+.logo {
+	margin-left: 40px;
+	margin-top: calc(136px - 96px);
+
+	@include dimension-settings(48px, $height: 48px);
+	@include position-settings($zIndex: $zIndex-large-03, $position: relative);
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		margin-top: 0;
+	}
+
+	@media (max-width: 950px) {
+		margin-left: 30px;
+	}
+	// *** End of Responsive Design ***
+}
+
+// *** Desktop ***
+.navigation {
+	margin-top: calc(136px - 96px);
+
+	background-color: rgba(255, 255, 255, 0.05);
+
+	backdrop-filter: blur(15px);
+
+	@include dimension-settings(100%, 836px, 96px);
+	@include flex-settings;
+	@include position-settings($zIndex: $zIndex-small-03, $position: relative);
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		margin-top: 0;
+	}
+
+	@media (max-width: 950px) {
+		@include dimension-settings($max-width: 700px);
+		@include font-settings(14.4px, null);
+	}
+
+	@media (max-width: 850px) {
+		display: none;
+	}
+	// *** End of Responsive Design ***
+
+	&-menu {
+		@include flex-settings($gap: 40px);
+
+		// *** Responsive Design ***
+		@media (max-width: 950px) {
+			@include flex-settings($gap: 25px);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-link {
+		&:visited,
+		&:link {
+			text-transform: uppercase;
+
+			@include flex-settings($gap: 10px);
+			@include position-settings($position: relative);
+		}
+
+		// *** Pseudo Element - ::before ( Navigation Links - Desktop ) ***
+		@extend %desktop-nav-link;
+		// *** End of Pseudo Element - ::before ( Navigation Links - Desktop ) ***
+	}
+
+	span {
+		@include font-settings(null, 700, null, 2.7px);
+	}
+}
+// *** End of Desktop ***
+
+// *** Mobile ***
+.navigation-mobile {
+	display: block;
+
+	background-color: rgba(255, 255, 255, 0.05);
+
+	backdrop-filter: blur(15px);
+
+	transition: all 0.35s ease-in-out;
+
+	@include dimension-settings(50%, null, 100%);
+	@include position-settings(0, null, 0, null, $zIndex-small-03, fixed);
+
+	// *** Responsive Design ***
+	@media (max-width: 650px) {
+		@include dimension-settings(70%);
+	}
+	// *** End of Responsive Design ***
+
+	&.active {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&.no-active {
+		transform: translateX(100%);
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&-menu {
+		margin-top: 150px;
+		margin-left: 50px;
+
+		ul {
+			@include flex-settings(null, null, column, 20px);
+		}
+
+		ul li {
+			@include dimension-settings(100%);
+		}
+
+		.navigation-link {
+			&:visited,
+			&:link {
+				text-transform: uppercase;
+
+				@include font-settings(20px, null);
+				@include flex-settings(start, center, null, 10px);
+				@include position-settings(
+					$zIndex: $zIndex-medium-03,
+					$position: relative
+				);
+
+				// *** Responsive Design ***
+				@media (max-width: 500px) {
+					@include font-settings(16px, null);
+				}
+				// *** End of Responsive Design ***
+			}
+
+			// *** Pseudo Element - ::before ( Navigation Links - Mobile ) ***
+			@extend %mobile-nav-link;
+			// *** End of Pseudo Element - ::before ( Navigation Links - Mobile ) ***
+		}
+	}
+}
+// *** End of Mobile ***
+
+// *** Hamburger Menu ***
+.hamburger-menu {
+	display: none;
+
+	margin-right: 36px;
+
+	@include dimension-settings(24px, null, 24px);
+	@include position-settings($zIndex: $zIndex-large-01, $position: relative);
+
+	.close-btn,
+	.hamburger-btn {
+		cursor: pointer;
+	}
+
+	.close-btn.active {
+		display: block;
+	}
+
+	.close-btn.no-active {
+		display: none;
+	}
+
+	.hamburger-btn.active {
+		display: block;
+	}
+
+	.hamburger-btn.no-active {
+		display: none;
+	}
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		display: block;
+	}
+	// *** End of Responsive Design ***
+}
+
+// *** End of Hamburger Menu ***
+// *** End of Header ***

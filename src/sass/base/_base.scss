@@ -1,0 +1,34 @@
+@use "../abstract" as *;
+
+/* GSAP - splitText RESET */
+p > div:first-child {
+	text-align: left !important;
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		text-align: center !important;
+	}
+	// *** End of Responsive Design ***
+}
+/* End of GSAP - splitText RESET */
+
+// *** Body ***
+body {
+	color: $color-white;
+	background-color: $color-body;
+
+	font-family: $font-fa-primary;
+
+	overflow-x: hidden;
+
+	@include font-settings(16px, 400, calc(1.5 / 1), 0.4px);
+	@include dimension-settings(100vw, $height: 100vh);
+}
+// *** End of Body ***
+
+// *** Div - Root ***
+#root {
+	overflow-x: hidden;
+	@include dimension-settings(100%, $height: 100%);
+}
+// *** End of Div - Root ***

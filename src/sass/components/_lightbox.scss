@@ -1,0 +1,98 @@
+@use "../abstract" as *;
+@use "../pages/destinations" as *;
+@use "../pages/crew" as *;
+
+// *** Overlay - Lightbox ***
+.overlay-lightbox {
+	transform: scale(0);
+
+	background-color: rgba(0, 0, 0, 0.65);
+
+	cursor: pointer;
+
+	@include dimension-settings(100%, null, 100%);
+	@include position-settings(0, 0, null, null, $zIndex-extra-large-03, fixed);
+
+	// ***  Responsive Design ***
+	@media (max-width: 850px) {
+		&.is-open {
+			transform: scale(1);
+			transition: transform 0.3s linear;
+		}
+
+		&.is-close {
+			transform: scale(0);
+			transition: transform 0.3s linear;
+			transition-delay: 0.5s;
+		}
+
+		&.is-open .overlay-lightbox-image.active {
+			transform: translate(-50%, -50%) scale(1);
+
+			opacity: 1;
+			visibility: visible;
+
+			filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+
+			@include position-settings(50%, 50%);
+		}
+
+		&.is-close .overlay-lightbox-image.no-active {
+			transform: translate(-50%, -50%) scale(0);
+
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		& .overlay-lightbox-image {
+			max-height: 80dvh;
+			@include dimension-settings($max-width: 80vw);
+		}
+
+		.overlay-lightbox-image {
+			cursor: pointer;
+		}
+	}
+	// ***  End of Responsive Design ***
+
+	&::before {
+		content: "";
+
+		background-color: $color-white;
+
+		@include dimension-settings(100%, null, 3px);
+		@include position-settings($left: 0, $bottom: 0);
+	}
+
+	// *** Destination ***
+	&.is-close .overlay-lightbox-image {
+		transform: translate(-50%, -50%) scale(0);
+
+		opacity: 0;
+		visibility: hidden;
+
+		@include position-settings(50%, 50%);
+	}
+	// *** End of Destination ***
+}
+
+.overlay-message-animation {
+	transform: translate(-50%, -50%);
+
+	color: $color-white;
+
+	text-align: center;
+	text-transform: uppercase;
+	font-family: $font-fa-tertiary;
+
+	@include font-settings(18px, 700, 180%, 2px);
+	@include dimension-settings(100%);
+	@include position-settings(null, 50%, null, 4%);
+
+	// *** Responsive Design ***
+	@media (max-width: 550px) {
+		@include font-settings(14px, 700);
+	}
+	// *** End of Responsive Design ***
+}
+// *** End of Overlay - Lightbox ***

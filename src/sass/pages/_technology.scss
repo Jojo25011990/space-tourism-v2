@@ -1,0 +1,238 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Technology ***
+.technology-page {
+	background: url("/assets/technology/background-technology-desktop.jpg")
+		no-repeat center/cover;
+
+	@include dimension-settings(100%, null, null, 100vh);
+	@include flex-settings;
+
+	// *** Responsive Design ***
+
+	@media (max-width: 850px) {
+		background: url("/assets/technology/background-technology-tablet.jpg")
+			no-repeat center/cover;
+	}
+
+	@media (max-width: 500px) {
+		background: url("/assets/technology/background-technology-mobile.jpg")
+			no-repeat center/cover;
+	}
+	// *** End of Responsive Design ***
+
+	&-container {
+		margin: 157px auto 0 auto;
+
+		padding-inline: 14px;
+		padding-bottom: 48px;
+
+		@include dimension-settings(100%, 1275px);
+		@include flex-settings(center, null, column, $gap: 24px);
+
+		// *** Responsive Design ***
+		@media (max-width: 1100px) {
+			@include flex-settings($gap: 32px);
+		}
+
+		@media (max-width: 850px) {
+			@include flex-settings($gap: 32px);
+		}
+
+		@media (max-width: 500) {
+			margin-top: 140px;
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-wrapper {
+		@include dimension-settings(100%);
+		@include flex-settings(space-between, $gap: 2rem);
+
+		// *** Responsive Design ***
+		@media (max-width: 1100px) {
+			text-align: center;
+			@include flex-settings(center, center, column);
+		}
+
+		// *** End of Responsive Design ***
+	}
+}
+
+.technology-content-box {
+	padding-block: 20px;
+
+	@include dimension-settings(100%, 635px, null, 340px);
+	@include flex-settings(space-between, $gap: 64px);
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		padding: 0;
+
+		order: 2;
+		@include flex-settings(center, null, column, 40px);
+	}
+
+	// *** End of Responsive Design ***
+}
+
+.technology-button-box {
+	@include dimension-settings(100%, 80px, 100%);
+	@include flex-settings(space-between, center, column, $gap: 28px);
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		@include dimension-settings($max-width: unset);
+		@include flex-settings($direction: row);
+	}
+
+	// *** End of Responsive Design ***
+}
+
+.technology-img-box {
+	position: relative;
+
+	@include dimension-settings(100%, 515px, null, 640px);
+	@include flex-settings(center, null);
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		@include dimension-settings($max-width: 700px, $min-height: 340px);
+	}
+
+	// *** End of Responsive Design ***
+}
+
+.tech-btn {
+	color: #fff;
+	background-color: transparent;
+
+	border-radius: 50%;
+
+	outline: 1px solid rgba(255, 255, 255, 0.25);
+
+	transition:
+		color 0.3s,
+		background-color 0.3s;
+
+	cursor: pointer;
+
+	@include dimension-settings(100%, 80px, 80px);
+	@include font-settings(30px, null);
+
+	&:hover,
+	&:active {
+		color: $color-dark-blue;
+		background-color: #fff;
+	}
+
+	&.active {
+		color: $color-dark-blue;
+		background-color: #fff;
+	}
+
+	// *** Responsive Design ***
+	@media (max-width: 1100px) {
+		@include dimension-settings(56px, null, 56px);
+		@include font-settings(20px, null);
+	}
+	@media (max-width: 500px) {
+		@include dimension-settings(40px, null, 40px);
+		@include font-settings(18px, null);
+	}
+
+	// *** End of Responsive Design ***
+}
+
+.technology-title {
+	text-transform: uppercase;
+
+	align-self: self-start;
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		align-self: center;
+	}
+	// *** End of Responsive Design ***
+
+	& span {
+		display: block;
+	}
+
+	&-span-01 {
+		opacity: 0.5;
+		@include font-settings(28px, null, null, 4px);
+
+		// *** Responsive Design ***
+		@media (max-width: 1100px) {
+			@include font-settings(24px, null);
+		}
+
+		@media (max-width: 850px) {
+			margin-bottom: 16px;
+
+			@include font-settings(20px, null, null, 4px);
+		}
+
+		@media (max-width: 500px) {
+			margin-bottom: 0;
+
+			@include font-settings(18px, null);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-span-02 {
+		color: #fff;
+
+		@include font-settings(56px, null);
+
+		// *** Responsive Design ***
+		@media (max-width: 1100px) {
+			@include font-settings(40px, null);
+		}
+
+		@media (max-width: 850px) {
+			margin-bottom: 24px;
+
+			@include font-settings(36px, null, 1.3);
+		}
+
+		@media (max-width: 500px) {
+			@include font-settings(30px, inherit);
+		}
+
+		// *** End of Responsive Design ***
+	}
+}
+
+// *** End of Technology ***
+
+.technology-page .overlay-lightbox-image {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	transition: all 0.5s ease-in-out;
+
+	// *** Responsive Design ***
+	@media (max-width: 850px) {
+		& {
+			cursor: pointer;
+		}
+	}
+	// *** End of Responsive Design ***
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 0.25s;
+	}
+
+	&.no-active {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+		visibility: hidden;
+	}
+}

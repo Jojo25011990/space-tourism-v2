@@ -1,0 +1,114 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+// *** Error Page ***
+.error-page {
+	padding-top: 1.5rem;
+	background-color: $color-black;
+
+	overflow: hidden;
+
+	perspective: 1000px;
+	transform-style: preserve-3d;
+
+	font-family: $font-fa-tertiary;
+
+	@include dimension-settings(100%, null, $min-height: 100dvh);
+	@include flex-settings(end, center, column);
+
+	@include position-settings($position: relative);
+}
+
+.error-button {
+	opacity: 0;
+	visibility: hidden;
+
+	transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+
+	animation: error-animate-button 2s 4s forwards;
+
+	@include position-settings($position: relative);
+
+	&:link,
+	&:visited {
+		overflow: hidden;
+
+		text-transform: uppercase;
+
+		@include font-settings(50px, bold, null, 4.5px);
+
+		@include position-settings(
+			$zIndex: $zIndex-large-03,
+			$position: relative
+		);
+	}
+
+	&::before {
+		content: "";
+
+		transform: scaleX(0);
+		transform-origin: left;
+
+		background-color: $color-white;
+
+		transition: transform 0.25s;
+
+		will-change: transform;
+
+		@include dimension-settings(96%, null, 4px);
+		@include position-settings(null, 0, null, 10px, $zIndex-medium-03);
+	}
+
+	&:hover::before {
+		transform: scaleX(1);
+	}
+}
+
+.message-box {
+	text-align: center;
+
+	justify-self: end;
+
+	@include flex-settings($direction: column);
+
+	&-text-01,
+	&-text-02 {
+		perspective: 1000px;
+		transform-style: preserve-3d;
+	}
+	&-text-01,
+	&-text-02 {
+		span {
+			display: inline-block;
+
+			transform: translateZ(-2000px) scale(0);
+			opacity: 0;
+			visibility: hidden;
+
+			animation: error-page-message 1s linear forwards;
+		}
+	}
+
+	&-text-01 {
+		@include font-settings(50px, 700);
+	}
+
+	&-text-02 {
+		margin-top: -10px;
+
+		@include font-settings(30px, 700);
+		@include flex-settings($gap: 5px);
+	}
+}
+
+.css-art-box {
+	overflow: hidden;
+
+	@include dimension-settings(600px, null, 600px);
+	@include position-settings($position: relative);
+
+	@media (max-width: 500px) {
+		@include dimension-settings(600px, null, 560px);
+	}
+}
+// *** End of Error Page ***

@@ -1,0 +1,101 @@
+@use "../abstract" as *;
+@use "../base/" as *;
+
+// *** Intro - Star Wars Style ***
+.intro-page {
+	background-color: transparent;
+
+	@include dimension-settings(100%, null, 100%);
+	@include position-settings(0, 0, null, null, $zIndex-extra-large-03, fixed);
+
+	&-canvas {
+		overflow: hidden;
+
+		animation: intro-fade-out 1s linear forwards;
+		animation-delay: 30s;
+
+		@include dimension-settings(100%, null, 100%);
+		@include position-settings($zIndex-small-01, $position: relative);
+	}
+}
+
+.intro-content {
+	transform: translate(-50%, -50%);
+
+	perspective: 1000px;
+	transform-style: preserve-3d;
+
+	overflow: hidden;
+
+	text-align: center;
+
+	@include dimension-settings(100%, null, 100%);
+	@include flex-settings;
+	@include position-settings(50%, 50%);
+
+	@include position-settings($zIndex: $zIndex-medium-03);
+
+	&-wrapper {
+		overflow: hidden;
+
+		transform: rotateX(60deg);
+
+		@include position-settings($position: relative);
+		@include dimension-settings(100%, 500px, 100%);
+
+		// *** Responsive Design ***
+		@media (max-width: 650px) {
+			@include dimension-settings(100%, 350px, 100%);
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-title {
+		color: $color-black;
+		-webkit-text-stroke: 0.5px $color-orange;
+
+		transform: scale(100);
+		opacity: 0;
+		visibility: hidden;
+
+		animation: intro-title 10s linear forwards;
+		animation-delay: 1s;
+
+		font-family: $font-fa-tertiary;
+		@include font-settings(null, 700);
+		@include position-settings;
+
+		// *** Responsive Design ***
+		@media (max-width: 650px) {
+			animation: intro-title 9.5s linear forwards;
+			animation-delay: 0.5s;
+		}
+		// *** End of Responsive Design ***
+	}
+
+	&-description {
+		transform: translateY(150%);
+
+		color: $color-orange;
+		text-shadow: 0 0 1px $color-black;
+
+		animation: intro-description 29s linear forwards;
+
+		text-transform: capitalize;
+		font-family: $font-fa-secondary;
+
+		@include font-settings(40px, 700, 2.2);
+		@include dimension-settings(100%);
+
+		// *** Responsive Design ***
+		@media (max-width: 650px) {
+			@include font-settings(30px, 700, 2.2);
+
+			animation: intro-description 28s linear forwards;
+
+			animation-delay: 3.5s;
+		}
+		// *** End of Responsive Design ***
+	}
+}
+// *** End of Intro - Star Wars Style ***
