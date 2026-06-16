@@ -22,7 +22,7 @@ body {
 	overflow-x: hidden;
 
 	@include font-settings(16px, 400, calc(1.5 / 1), 0.4px);
-	@include dimension-settings(100vw, $height: 100vh);
+	@include dimension-settings(100vw, $height: 100dvh);
 }
 // *** End of Body ***
 
